@@ -13,17 +13,15 @@ dependencies:
     
   flutter_plugin_android_lifecycle: ^2.0.6
   plugin_platform_interface: ^2.1.2
-  ffi: ^2.0.1
+  ffi: ^1.2.1
   path: ^1.8.0
-  win32: ^3.0.0
 
 dev_dependencies:
-  lints: ^2.0.0
   flutter_test:
     sdk: flutter
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
   flutter: ">=1.10.0"
   
 flutter:
@@ -37,9 +35,3 @@ flutter:
       web:
         pluginClass: FilePickerWeb
         fileName: _internal/file_picker_web.dart
-      macos:
-        default_package: file_picker
-      windows:
-        default_package: file_picker
-      linux:
-        default_package: file_picker

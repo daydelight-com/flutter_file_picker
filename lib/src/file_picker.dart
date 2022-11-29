@@ -2,12 +2,9 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:file_picker/src/file_picker_io.dart';
-import 'package:file_picker/src/file_picker_macos.dart';
-import 'package:file_picker/src/file_picker_result.dart';
-import 'package:file_picker/src/linux/file_picker_linux.dart';
-import 'package:file_picker/src/windows/stub.dart'
-    if (dart.library.io) 'package:file_picker/src/windows/file_picker_windows.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
+
+import '../file_picker.dart';
 
 const String defaultDialogTitle = '';
 
@@ -49,12 +46,6 @@ abstract class FilePicker extends PlatformInterface {
   factory FilePicker._setPlatform() {
     if (Platform.isAndroid || Platform.isIOS) {
       return FilePickerIO();
-    } else if (Platform.isLinux) {
-      return FilePickerLinux();
-    } else if (Platform.isWindows) {
-      return filePickerWithFFI();
-    } else if (Platform.isMacOS) {
-      return FilePickerMacOS();
     } else {
       throw UnimplementedError(
         'The current platform "${Platform.operatingSystem}" is not supported by this plugin.',
