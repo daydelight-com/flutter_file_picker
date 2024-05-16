@@ -231,7 +231,7 @@
         case VIDEO:
             self.galleryPickerController.mediaTypes = videoTypes;
             if (@available(iOS 11.0, *)) {
-                self.galleryPickerController.videoExportPreset = allowCompression ? AVAssetExportPresetHighestQuality : AVAssetExportPresetPassthrough;
+                self.galleryPickerController.videoExportPreset = AVAssetExportPresetPassthrough;
             }
             break;
             
@@ -267,7 +267,7 @@
     if (@available(iOS 11.0, *)) {
         DKImageAssetExporterConfiguration * exportConfiguration = [[DKImageAssetExporterConfiguration alloc] init];
         exportConfiguration.imageExportPreset = allowCompression ? DKImageExportPresentCompatible : DKImageExportPresentCurrent;
-        exportConfiguration.videoExportPreset = allowCompression ? AVAssetExportPresetHighestQuality : AVAssetExportPresetPassthrough;
+        exportConfiguration.videoExportPreset = AVAssetExportPresetPassthrough;
         dkImagePickerController.exporter = [dkImagePickerController.exporter initWithConfiguration:exportConfiguration];
     }
     
